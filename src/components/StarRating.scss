@@ -1,0 +1,15 @@
+@import "../scss/variable";
+
+.stars {
+	.star {
+		&:hover{
+			cursor: pointer;
+		}
+		 &.on {
+			 color: $star-color;
+		 }
+		&.off {
+			color: gray;
+		}
+	}
+}

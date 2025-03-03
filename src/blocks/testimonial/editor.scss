@@ -1,0 +1,22 @@
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+//.wp-block-pj-testimonial {
+//	border: 1px dotted #f00;
+//}
+
+@import "/src/scss/variable";
+.wp-block-pj-testimonial{
+	border: 2px dashed #f00;
+	textarea, input[type=text] {
+		background-color: $bg-light;
+	}
+
+	.photo img{
+		pointer-events: all;
+		cursor: pointer;
+	}
+}
