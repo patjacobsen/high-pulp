@@ -36,7 +36,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function BlockSettings() {
+function BlockSettings({
+  attributes,
+  setAttributes
+}) {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
       title: "Basic",
@@ -65,6 +68,21 @@ function BlockSettings() {
             })
           })
         })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.PanelColorSettings, {
+        title: "Color",
+        colorSettings: [{
+          value: attributes.textColor,
+          onChange: textColor => setAttributes({
+            textColor
+          }),
+          label: "Text"
+        }, {
+          value: attributes.backgroundColor,
+          onChange: backgroundColor => setAttributes({
+            backgroundColor
+          }),
+          label: 'Background'
+        }]
       })]
     })
   });
@@ -180,15 +198,18 @@ function Edit({
             })
           })
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
         className: "text",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.PlainText, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.PlainText, {
           className: "author",
           value: attributes.author,
           onChange: value => setAttributes({
-            author: value
+            author
           })
-        })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("p", {
+          className: "location",
+          children: "Point Place, WI"
+        })]
       })]
     })]
   });
@@ -298,16 +319,22 @@ __webpack_require__.r(__webpack_exports__);
 function save({
   attributes
 }) {
-  //building stars
-  // let stars='';
-  // for(let i=0; i < attributes.stars; i++){
-  // 	stars += '★'
-  // }
+  // building stars
+  let stars = '';
+  for (let i = 0; i < attributes.stars; i++) {
+    stars += '★';
+  }
+  const divStyles = {
+    '--pj-testimonial-bg-color': attributes.backgroundColor,
+    color: attributes.textColor
+  };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-    ..._wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps.save(),
-    style: divStyles,
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_components_StarRating__WEBPACK_IMPORTED_MODULE_1__["default"], {
-      rating: attributes.stars
+    ..._wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.useBlockProps.save({
+      style: divStyles
+    }),
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+      className: "stars",
+      children: stars
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__.RichText.Content, {
       tagName: "div",
       className: "quote",
@@ -380,7 +407,7 @@ const colors = [{
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ starRating)
+/* harmony export */   "default": () => (/* binding */ StarRating)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
@@ -390,7 +417,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function starRating({
+function StarRating({
   rating,
   setRating
 }) {

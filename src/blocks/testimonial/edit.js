@@ -3,7 +3,7 @@
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-i18n/
  */
-import { __ } from '@wordpress/i18n';
+import {__} from '@wordpress/i18n';
 
 /**
  * React hook that is used to mark the block wrapper element.
@@ -11,7 +11,7 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { useBlockProps } from '@wordpress/block-editor';
+import {useBlockProps} from '@wordpress/block-editor';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -30,10 +30,11 @@ import './editor.scss';
  * @return {Element} Element to render.
  */
 import {RichText, PlainText} from '@wordpress/block-editor';
-import { SelectControl } from '@wordpress/components';
+import {SelectControl} from '@wordpress/components';
 import BlockSettings from "./blocksettings";
-import { MediaUpload, MediaUploadCheck } from '@wordpress/block-editor';
+import {MediaUpload, MediaUploadCheck} from '@wordpress/block-editor';
 import StarRating from "../../components/StarRating";
+
 export default function Edit({attributes, setAttributes}) {
 	/**
 	 * Style override for the block
@@ -44,7 +45,7 @@ export default function Edit({attributes, setAttributes}) {
 		color: attributes.textColor,
 	}
 	return (
-		<div { ...useBlockProps() } style={divStyles}>
+		<div {...useBlockProps()} style={divStyles}>
 			<BlockSettings
 				attributes={attributes}
 				setAttributes={setAttributes}
@@ -72,22 +73,22 @@ export default function Edit({attributes, setAttributes}) {
 				tagName="div"
 				placeholder="I love cake"
 				value={attributes.quote}
-				onChange={value=>setAttributes({quote: value})}
+				onChange={value => setAttributes({quote: value})}
 			/>
 			<div className="quote-profile">
 				<div className="photo">
 					<MediaUploadCheck>
 						<MediaUpload
-							onSelect={ ( media ) => setAttributes({'avatarURL': media.sizes.thumbnail.url})}
-							allowedTypes={ ['image'] }
-							render={ ( { open } ) => (
+							onSelect={(media) => setAttributes({'avatarURL': media.sizes.thumbnail.url})}
+							allowedTypes={['image']}
+							render={({open}) => (
 								<img
-									onClick={ open }
+									onClick={open}
 									src={attributes.avatarURL}
 									alt="Choose Image"
 								/>
-							) }
-							/>
+							)}
+						/>
 					</MediaUploadCheck>
 					{/*<img src="https://place-hold.it/75" alt="Choose Image" />*/}
 				</div>
@@ -95,10 +96,11 @@ export default function Edit({attributes, setAttributes}) {
 					<PlainText
 						className="author"
 						value={attributes.author}
-						onChange={value=>setAttributes({author: value})}
+						onChange={value => setAttributes({author})}
 					/>
-				</div>
+					<p className="location">Point Place, WI</p>
 				</div>
 			</div>
+		</div>
 	);
 }

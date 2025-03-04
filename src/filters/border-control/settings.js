@@ -14,14 +14,17 @@ function addBorderAttributes(settings, name) {
 		type: "number",
 		default: 10,
 	};
+
 	settings.attributes.bcBorderWidth = {
 		type: "number",
 		default: 2,
 	};
+
 	settings.attributes.bcBorderRadius = {
 		type: "number",
 		default: 5,
 	};
+
 	settings.attributes.bcBorderColor = {
 		type: "string",
 		default: "black",

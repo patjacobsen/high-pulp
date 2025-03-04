@@ -1,9 +1,9 @@
 import React from "react";
-import {InspectorControls} from "@wordpress/block-editor";
+import {InspectorControls, PanelColorSettings} from "@wordpress/block-editor";
 import {ColorPalette, ColorPicker, PanelBody, PanelRow} from "@wordpress/components";
 import colors from "../../common/colors";
 
-export default function BlockSettings(){
+export default function BlockSettings({attributes, setAttributes}){
 
 	return (
 		<InspectorControls>
@@ -28,6 +28,21 @@ export default function BlockSettings(){
 						/>
 					</PanelRow>
 				</PanelRow>
+				<PanelColorSettings
+					title="Color"
+					colorSettings={[
+						{
+							value: attributes.textColor,
+							onChange: textColor => setAttributes({textColor}),
+							label: "Text",
+						},
+						{
+							value: attributes.backgroundColor,
+							onChange: backgroundColor => setAttributes({backgroundColor}),
+							label: 'Background',
+						},
+					]}
+				/>
 			</PanelBody>
 		</InspectorControls>
 	)

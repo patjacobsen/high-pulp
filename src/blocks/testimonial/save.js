@@ -16,15 +16,18 @@ import StarRating from "../../components/StarRating"
  * @return {Element} Element to render.
  */
 export default function save({attributes}) {
-	//building stars
-	// let stars='';
-	// for(let i=0; i < attributes.stars; i++){
-	// 	stars += '★'
-	// }
+	// building stars
+	let stars='';
+	for(let i=0; i < attributes.stars; i++){
+		stars += '★'
+	}
+	const divStyles = {
+		'--pj-testimonial-bg-color': attributes.backgroundColor,
+		color: attributes.textColor,
+	}
 	return (
-		<div { ...useBlockProps.save() } style={divStyles}>
-			<StarRating rating={attributes.stars}/>
-			{/*<div className="stars">{stars}</div>*/}
+		<div {...useBlockProps.save({style: divStyles})} >
+			<div className="stars">{ stars }</div>
 			<RichText.Content
 				tagName="div"
 				className="quote"

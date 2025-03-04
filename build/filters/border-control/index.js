@@ -42,7 +42,8 @@ function blockWrapper(WrappedBlock) {
       } = this.props;
       let divStyles = {
         borderStyle: attributes.bcBorderStyle || "none",
-        borderWidth: "2px",
+        borderWidth: (attributes.bcBorderWidth || 2) + 'px',
+        borderRadius: (attributes.bcBorderRadius || 0) + 'px',
         borderColor: "black",
         padding: (attributes.bcPadding || 0) + 'px'
       };
@@ -87,6 +88,28 @@ function blockWrapper(WrappedBlock) {
                   })
                 })]
               }), " px"]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("p", {
+                children: "Hello"
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.RangeControl, {
+              label: "Width",
+              value: attributes.bcBorderWidth,
+              onChange: bcBorderWidth => setAttributes({
+                bcBorderWidth
+              }),
+              min: .5,
+              max: 5,
+              step: .5
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.RangeControl, {
+              label: "Radius",
+              value: attributes.bcBorderRadius,
+              onChange: bcBorderRadius => setAttributes({
+                bcBorderRadius
+              }),
+              min: 0,
+              max: 10,
+              step: 1
             })]
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
@@ -133,6 +156,18 @@ function addBorderAttributes(settings, name) {
   settings.attributes.bcPadding = {
     type: "number",
     default: 10
+  };
+  settings.attributes.bcBorderWidth = {
+    type: "number",
+    default: 2
+  };
+  settings.attributes.bcBorderRadius = {
+    type: "number",
+    default: 5
+  };
+  settings.attributes.bcBorderColor = {
+    type: "string",
+    default: "black"
   };
 
   // (modify any additional settings)

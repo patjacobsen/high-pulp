@@ -15,7 +15,7 @@ function blockWrapper(WrappedBlock) {
       let divStyles = {
 		  borderStyle: attributes.bcBorderStyle || "none",
 		  borderWidth: (attributes.bcBorderWidth || 2) + 'px',
-		  borderRadius: (attributes.bcBorderRadius || 5) + 'px',
+		  borderRadius: (attributes.bcBorderRadius || 0) + 'px',
 		  borderColor: "black",
 		  padding: (attributes.bcPadding || 0) + 'px',
       };
@@ -54,26 +54,25 @@ function blockWrapper(WrappedBlock) {
 				<PanelRow>
 					<p>Hello</p>
 				</PanelRow>
-				<PanelRow>
+
 					<RangeControl
 						label="Width"
 						value={attributes.bcBorderWidth}
-						onChange={ ( bcBorderWidth ) => setAttributes( bcBorderWidth )}
+						onChange={( bcBorderWidth ) => setAttributes({bcBorderWidth})}
 						min={ .5 }
 						max={ 5 }
 						step={ .5 }
 						/>
-				</PanelRow>
-				<PanelRow>
+
 					<RangeControl
 						label="Radius"
 						value={attributes.bcBorderRadius}
-						onChange={ (bcBorderRadius ) => setAttributes( bcBorderRadius )}
+						onChange={(bcBorderRadius ) => setAttributes({bcBorderRadius})}
 						min={ 0 }
 						max={ 10 }
 						step={ 1 }
 					/>
-				</PanelRow>
+
             </PanelBody>
           </InspectorControls>
 

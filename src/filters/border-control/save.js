@@ -2,10 +2,11 @@ import { addFilter } from "@wordpress/hooks";
 
 function addBorderDiv(element, blockType, attributes) {
   let divStyles = {
-    borderStyle: attributes.bcBorderStyle || "none",
-    borderWidth: attributes.bcBorderWidth || "2px",
-	  borderRadius: attributes.bcBorderWidth,
-    borderColor: "black",
+	  borderStyle: attributes.bcBorderStyle || "none",
+	  borderWidth: (attributes.bcBorderWidth || 2) + "px",
+	  borderRadius: (attributes.bcBorderRadius || 0 + "px"),
+	  borderColor: "black",
+	  padding: (attributes.bcPadding || 10) + "px",
   };
 
   // WARNING!!!
