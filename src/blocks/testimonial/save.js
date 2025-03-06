@@ -35,7 +35,7 @@ export default function save({attributes}) {
 			/>
 			<div className="quote-profile">
 				<div className="photo">
-					<img src={attributes.avatarURL} alt={"Photo of " + attributes.author}/></div>
+					<img src={attributes.avatarURL} alt="Picture"/></div>
 				<div className="text">
 					<p className="author">{attributes.author}</p>
 					<p className="location">Point Place, Wi</p>

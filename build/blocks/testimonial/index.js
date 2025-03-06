@@ -345,7 +345,7 @@ function save({
         className: "photo",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
           src: attributes.avatarURL,
-          alt: "Photo of " + attributes.author
+          alt: "Picture"
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
         className: "text",
