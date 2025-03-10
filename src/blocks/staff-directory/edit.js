@@ -20,8 +20,6 @@ import { useBlockProps } from '@wordpress/block-editor';
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
 import './editor.scss';
-import metadata from "../portfolio-students/block.json";
-import ServerSideRender from '@wordpress/server-side-render';
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -31,13 +29,10 @@ import ServerSideRender from '@wordpress/server-side-render';
  *
  * @return {Element} Element to render.
  */
-export default function Edit(attributes) {
+export default function Edit() {
 	return (
-		<div {...useBlockProps()}>
-		<ServerSideRender
-			block={metadata.name}
-			attributes={attributes}
-		/>
+		<div { ...useBlockProps() }>
+			Staff directory will go here
 		</div>
 	);
 }

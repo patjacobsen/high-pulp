@@ -1,20 +1,19 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 3,
-  "name": "pj/portfolio-students",
+  "name": "pj/staff-directory",
   "version": "0.1.0",
-  "title": "Portfolio Students",
+  "title": "Staff Directory",
   "category": "design",
-  "icon": "activity",
-  "description": "A list of the students at the portfolio show",
+  "icon": "businessperson",
+  "description": "Staff Directory with search feature",
   "example": {},
   "supports": {
     "html": false
   },
-  "textdomain": "portfolio-students",
+  "textdomain": "staff-directory",
   "editorScript": "file:./index.js",
   "editorStyle": "file:./index.css",
   "style": "file:./style-index.css",
-  "render": "file:./render.php",
   "viewScript": "file:./view.js"
 }

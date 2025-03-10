@@ -30,6 +30,7 @@ function pj_high_pulp_blocks_block_init() {
 	register_block_type( __DIR__ . '/build/filters/border-control' );
 	register_block_type( __DIR__ . '/build/blocks/staff-list' );
 	register_block_type( __DIR__ . '/build/blocks/portfolio-students' );
+	register_block_type( __DIR__ . '/build/blocks/staff-directory' );
 }
 add_action( 'init', 'pj_high_pulp_blocks_block_init' );
 
