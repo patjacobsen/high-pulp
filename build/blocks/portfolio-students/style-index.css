@@ -7,5 +7,18 @@
  *
  * Replace them with your own styles or remove the file completely.
  */
+.wp-block-post-title {
+  text-align: center;
+}
+
+div.wp-block-pj-portfolio-students {
+  display: flex;
+  max-width: 80%;
+  justify-content: center;
+}
+
+div.student {
+  background-color: #F3F3F3;
+}
 
 /*# sourceMappingURL=style-index.css.map*/

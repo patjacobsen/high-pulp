@@ -12,14 +12,14 @@ $query = new WP_Query([
 	'order' => 'ASC',
 ])
 ?>
-<p <?php echo get_block_wrapper_attributes(); ?>>
+<div <?php echo get_block_wrapper_attributes(); ?>>
 	<?php while( $query->have_posts() ) : $query->the_post(); ?>
-	<div className="flip-card">
-		<div className="flip-card-inner">
-			<div className="flip-card-front">
+	<div className="" style="">
+		<div className="student">
+			<div className="spicture">
 				<?= get_the_post_thumbnail(); ?>
 			</div>
-			<div className="flip-card-back" style="">
+			<div className="">
 				<h3  style="font-size: 1.5em"><?= get_the_title()?></h3>
 				<div className="program" style="">Program: <?= get_post_meta(get_the_ID(), 'student_program', true); ?></div>
 				<div className="linkedin" style="">
@@ -32,4 +32,4 @@ $query = new WP_Query([
 		</div>
 	</div>
 <?php endwhile; ?>
-</p>
+</div>
