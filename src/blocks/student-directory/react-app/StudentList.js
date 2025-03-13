@@ -1,13 +1,13 @@
 import React, {useState} from 'react';
-import StaffListItem from './StaffListItem';
+import StudentListItem from './StudentListItem';
 
 export default function StaffList({posts}){
 
 	return(
-		<ul>
+		<card>
 			{posts.map(post => (
-				<StaffListItem post={post} key={post.id}/>
+				<StudentListItem post={post} key={post.id}/>
 			))}
-		</ul>
+		</card>
 	)
 }
