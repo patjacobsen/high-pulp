@@ -4,10 +4,10 @@ import StudentListItem from './StudentListItem';
 export default function StaffList({posts}){
 
 	return(
-		<card>
+		<div className="container">
 			{posts.map(post => (
 				<StudentListItem post={post} key={post.id}/>
 			))}
-		</card>
+		</div>
 	)
 }

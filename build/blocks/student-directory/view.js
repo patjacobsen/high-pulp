@@ -60,7 +60,7 @@ function BlockApp(props) {
   let [student, setStudent] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
   let [filteredStudents, setFilteredStudents] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
-    fetch('/wp-json/wp/v2/student').then(response => response.json()).then(data => {
+    fetch('/wp-json/wp/v2/student?_embed').then(response => response.json()).then(data => {
       console.log(data);
       setStudent(data);
       setFilteredStudents(data);
@@ -76,18 +76,14 @@ function BlockApp(props) {
     setFilteredStudents(results);
   }
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("label", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("label", {
         children: ["Search:", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
           type: "text",
           value: keyword,
           onChange: e => filterStudents(e.target.value)
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
-        label: "Search",
-        value: keyword,
-        onChange: keyword => filteredStudents(keyword)
-      })]
+      })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_StudentList__WEBPACK_IMPORTED_MODULE_1__["default"], {
       posts: filteredStudents
     })]
@@ -117,7 +113,8 @@ __webpack_require__.r(__webpack_exports__);
 function StaffList({
   posts
 }) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("card", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+    className: "container",
     children: posts.map(post => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_StudentListItem__WEBPACK_IMPORTED_MODULE_1__["default"], {
       post: post
     }, post.id))
@@ -145,21 +142,20 @@ __webpack_require__.r(__webpack_exports__);
 function StudentListItem({
   post
 }) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
-      src: post,
-      alt: "Avatar",
-      style: "width:100%"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-      className: "container",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h4", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+    className: "card",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h3", {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("b", {
-          children: "John Doe"
+          children: post.title.rendered
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
-        children: "Architect & Engineer"
+        children: post.acf.student_program
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+        className: "portfolio",
+        children: post.acf.student_portfolio
       })]
-    })]
+    })
   });
 }
 
@@ -287,7 +283,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const blocks = document.querySelectorAll('.wp-block-pj-staff-directory');
+const blocks = document.querySelectorAll('.wp-block-pj-student-directory');
 blocks.forEach(block => {
   (0,react_dom_client__WEBPACK_IMPORTED_MODULE_0__.createRoot)(block).render(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_student_directory_react_app_App__WEBPACK_IMPORTED_MODULE_1__["default"], {}));
 });

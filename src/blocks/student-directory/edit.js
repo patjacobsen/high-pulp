@@ -31,8 +31,8 @@ import './editor.scss';
  */
 export default function Edit() {
 	return (
-		<p { ...useBlockProps() }>
+		<div { ...useBlockProps() }>
 			{ __( 'Student Directory will go here', 'student-directory' ) }
-		</p>
+		</div>
 	);
 }

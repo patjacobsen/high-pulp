@@ -3,11 +3,14 @@ import React, {useState} from 'react';
 export default function StudentListItem({post}){
 
 	return(
-		<div>
-			<img src={post} alt="Avatar" style="width:100%"></img>
-				<div className="container">
-					<h4><b>John Doe</b></h4>
-					<p>Architect & Engineer</p>
+		<div className="card">
+			{/*<div>*/}
+			{/*	{post.acf.student_picture}*/}
+			{/*</div>*/}
+				<div>
+					<h3><b>{post.title.rendered}</b></h3>
+					<p>{post.acf.student_program}</p>
+					<p className="portfolio">{post.acf.student_portfolio}</p>
 				</div>
 		</div>
 	)
